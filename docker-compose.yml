@@ -1,0 +1,12 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: nnen-mysql
+    environment:
+      MYSQL_DATABASE: nnen_db
+      MYSQL_ROOT_PASSWORD: rootpassword
+      TZ: UTC
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./nnen-all.sql:/docker-entrypoint-initdb.d/nnen-all.sql
